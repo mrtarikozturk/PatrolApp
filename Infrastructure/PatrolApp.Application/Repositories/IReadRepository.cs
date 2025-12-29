@@ -1,10 +1,13 @@
-﻿namespace PatrolApp.Application.Repositories
+﻿using PatrolApp.Domain.Entities;
+using System.Linq.Expressions;
+
+namespace PatrolApp.Application.Repositories
 {
-    public interface IReadRepository<T> : IRepository<T> where T : class
+    public interface IReadRepository<T> : IRepository<T> where T : BaseEntity
     {
         IQueryable<T> GetAll();
-        IQueryable<T> GetWhere();
-        Task<T> GetSingleAsync();
+        IQueryable<T> GetWhere(Expression<Func<T, bool>> method);
+        Task<T> GetSingleAsync(Expression<Func<T, bool>> method);
         Task<T> GetByIdAsync(int id);
 
     }

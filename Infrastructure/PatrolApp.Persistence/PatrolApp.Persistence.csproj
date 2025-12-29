@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\PatrolApp.Domain\PatrolApp.Domain.csproj" />
+    <ProjectReference Include="..\PatrolApp.Application\PatrolApp.Application.csproj" />
   </ItemGroup>
 
 </Project>

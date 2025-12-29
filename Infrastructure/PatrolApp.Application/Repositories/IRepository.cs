@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PatrolApp.Domain.Entities;
 
 namespace PatrolApp.Application.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T : BaseEntity
     {
         DbSet<T> Table { get; }
     }
