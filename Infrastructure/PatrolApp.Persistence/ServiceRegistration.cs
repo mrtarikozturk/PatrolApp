@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PatrolApp.Application.Repositories;
 using PatrolApp.Persistence.Contexts;
+using PatrolApp.Persistence.Repositories;
 
 namespace PatrolApp.Persistence
 {
@@ -10,6 +12,8 @@ namespace PatrolApp.Persistence
         {
 
             services.AddDbContext<MSSQLDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
+            services.AddScoped<IOfficerReadRepository, OfficerReadRepository>();
+            services.AddScoped<IOfficerWriteRepository, OfficerWriteRepository>();
         }
     }
 }
